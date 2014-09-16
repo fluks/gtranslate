@@ -66,7 +66,7 @@ function test_getGoogleUrl() {
                 "?v=1.0&format=text&langpair=en%7Cfr&q=project");
     url = GoogleTranslate.getGoogleUrl("page", langFrom, langTo, text);
     do_check_eq(url,
-                "http://translate.google.com/#en%7Cfr%7Cproject");
+                "https://translate.google.com/#en%7Cfr%7Cproject");
     url = GoogleTranslate.getGoogleUrl("dict", langFrom, langTo, text);
     do_check_eq(url,
                 "http://www.google.com/dictionary?langpair=en%7Cfr&q=project");

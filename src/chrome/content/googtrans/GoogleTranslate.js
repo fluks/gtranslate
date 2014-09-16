@@ -168,12 +168,12 @@ if ("undefined" === typeof(GoogleTranslate)) {
 
                 // Google Translate API > JSON
                 case "api":
-                    formattedUrl = 'http://translate.google.com/translate_a/t?client=gtranslate&sl=' + langFrom + '&tl=' + langTo + '&text=' + encodeURIComponent(text);
+                    formattedUrl = 'https://translate.google.com/translate_a/t?client=gtranslate&sl=' + langFrom + '&tl=' + langTo + '&text=' + encodeURIComponent(text);
                     break;
 
                 // Google Translate page
                 case "page":
-                    formattedUrl = 'http://translate.google.com/#' + langFrom + '%7C' + langTo + '%7C' + encodeURIComponent(text);
+                    formattedUrl = 'https://translate.google.com/#' + langFrom + '%7C' + langTo + '%7C' + encodeURIComponent(text);
                     break;
             }
 
