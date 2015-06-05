@@ -1,28 +1,16 @@
-#
-#
-#
+FIREFOX_BIN?=nightly
 
-ifeq ($(TOPSRCDIR),)
-  export TOPSRCDIR = $(shell pwd)
-endif
+all: build
 
-.PHONY: test clean
+build:
+	# cfx is needed for Fx 37 (jpm xpi compatibility starts with Fx 38)
+	# jpm xpi
+	cfx xpi
 
-xpi:
-	mkdir -p $(TOPSRCDIR)/build && \
-	cd $(TOPSRCDIR)/src && \
-	zip -r $(TOPSRCDIR)/build/gtranslate.xpi chrome chrome.manifest defaults icon.png install.rdf && \
-	cd $(TOPSRCDIR)
+run:
+	jpm run -b $(FIREFOX_BIN) --debug --prefs ./dev/devprefs.json
 
-test:
-	$(MAKE) -k -C test/unit
-	$(MAKE) -k -C test/online
+description:
+	@node scripts/description.js
 
-clean:
-	$(MAKE) -C test/unit clean
-	rm -rf $(TOPSRCDIR)/build
-
-help:
-	@echo Targets:
-	@echo test
-	@echo clean
+.PHONY: all build run description
